@@ -1,6 +1,7 @@
 package com.ateneaips.ateneaips.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
@@ -11,7 +12,7 @@ public class Especialidad {
     
 
     @Id
-    @GenerateValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_especialidad;
     private String nombre;
 

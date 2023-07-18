@@ -5,10 +5,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.ateneaips.ateneaips.entity.Especialidad;
+import com.ateneaips.ateneaips.entity.Medico;
 
-@RepositoryRestResource(collectionResourceRel = "especialidades", path="especialidades")
+@RepositoryRestResource(collectionResourceRel = "medicos", path="medicos")
     @CrossOrigin(origins = "http://localhost:3000")
-public interface EspecialidadRepository extends PagingAndSortingRepository<Especialidad, Long>, CrudRepository<Especialidad, Long>{
+public interface MedicoRepository extends PagingAndSortingRepository<Medico, Long>, CrudRepository<Medico, Long>{
 
 }
