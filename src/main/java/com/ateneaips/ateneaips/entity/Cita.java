@@ -1,87 +1,77 @@
 package com.ateneaips.ateneaips.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Cita {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private LocalDate fecha;
 
-
-    private Long idCita;
-    private String fecha;
-    private Long cedulaPaciente;
-    private Long tarjetaProfesional;
-
+    @ManyToOne
+    @JoinColumn(name="medico_id")
+    private Medico medico;
+    
+    @ManyToOne
+    @JoinColumn(name="paciente_id")
+    private Paciente paciente;
 
     
+
     public Cita() {
     }
 
-
-
-    public Cita(Long idCita, String fecha, Long cedulaPaciente, Long tarjetaProfesional) {
-        this.idCita = idCita;
-        this.fecha = fecha;
-        this.cedulaPaciente = cedulaPaciente;
-        this.tarjetaProfesional = tarjetaProfesional;
+    public Cita(Long id, Medico medico, Paciente paciente) {
+        this.id = id;
+        this.medico = medico;
+        this.paciente = paciente;
+        
     }
 
-
-
-    public Long getIdCita() {
-        return idCita;
+    public Long getId() {
+        return id;
     }
 
+    public Medico getMedico() {
+        return medico;
+    }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
 
-    public String getFecha() {
+    
+    public LocalDate getFecha() {
         return fecha;
     }
 
+    
 
-
-    public Long getCedulaPaciente() {
-        return cedulaPaciente;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-
-
-    public Long getTarjetaProfesional() {
-        return tarjetaProfesional;
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
-
-
-    public void setIdCita(Long idCita) {
-        this.idCita = idCita;
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
-
-
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-
-
-    public void setCedulaPaciente(Long cedulaPaciente) {
-        this.cedulaPaciente = cedulaPaciente;
-    }
-
-
-
-    public void setTarjetaProfesional(Long tarjetaProfesional) {
-        this.tarjetaProfesional = tarjetaProfesional;
-    }
-
-
+        
     
-    
-    
-
 }
