@@ -12,8 +12,9 @@ import jakarta.persistence.OneToMany;
 public class Paciente {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    private Long idPaciente;
     private Long cedula;
     private String nombre;
     private String apellido;
@@ -27,12 +28,19 @@ public class Paciente {
 
 
 
-    public Paciente(Long cedula, String nombre, String apellido, String fechaNacimiento, String telefono) {
+    public Paciente(Long idPaciente, Long cedula, String nombre, String apellido, String fechaNacimiento, String telefono) {
+        this.idPaciente = idPaciente;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
+    }
+
+
+
+    public Long getIdPaciente() {
+        return idPaciente;
     }
 
 
@@ -96,8 +104,29 @@ public class Paciente {
     }
 
     
+
+    
+    public void setIdPaciente(Long idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+
+
+    public void setCita(List<Cita> cita) {
+        this.cita = cita;
+    }
+
+
+
+
     @OneToMany(mappedBy = "paciente")
     private List<Cita> cita;
+
+
+
+    public List<Cita> getCita() {
+        return cita;
+    }
     
  
 }

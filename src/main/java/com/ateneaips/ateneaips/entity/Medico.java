@@ -14,9 +14,10 @@ import jakarta.persistence.OneToMany;
 public class Medico {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private Long tarjetaProfesional;
+    private String tarjetaProfesional;
     private String nombre;
     private String apellido;
     private String consultorio;
@@ -33,7 +34,7 @@ public class Medico {
 
 
 
-    public Medico(Long tarjetaProfesional, String nombre, String apellido, String consultorio, String correo) {
+    public Medico(String tarjetaProfesional, String nombre, String apellido, String consultorio, String correo) {
         this.tarjetaProfesional = tarjetaProfesional;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -45,7 +46,7 @@ public class Medico {
 
 
 
-    public Long getTarjetaProfesional() {
+    public String getTarjetaProfesional() {
         return tarjetaProfesional;
     }
 
@@ -85,8 +86,24 @@ public class Medico {
 
 
 
-    public void setTarjetaProfesional(Long tarjetaProfesional) {
+    public void setTarjetaProfesional(String tarjetaProfesional) {
         this.tarjetaProfesional = tarjetaProfesional;
+    }
+
+
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+
+
+
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 
